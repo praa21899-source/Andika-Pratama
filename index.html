@@ -13,13 +13,37 @@
             font-family: Arial, sans-serif;
         }
 
-        body {
-    background-image: url('IMG_091afb3f-e775-430f-992d-4f82daea30d9.jpg');
+        /* --- ANIMASI BACKGROUND UTAMA --- */
+@keyframes gerakBackground {
+    0% {
+        transform: scale(1) translate(0%, 0%);
+    }
+    50% {
+        transform: scale(1.06) translate(-1.5%, -1%);
+    }
+    100% {
+        transform: scale(1) translate(0%, 0%);
+    }
+}
+
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: -12px;
+    z-index: -1;
+    background-image:
+        linear-gradient(rgba(5, 15, 35, 0.55), rgba(5, 15, 35, 0.65)),
+        url('IMG_091afb3f-e775-430f-992d-4f82daea30d9.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-          }
+    animation: gerakBackground 14s ease-in-out infinite;
+}
             
   
         /* --- ANIMASI BEBAS UNTUK HEADER & MENU --- */
